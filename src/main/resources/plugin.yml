@@ -1,0 +1,7 @@
+name: IceBreakBoat
+version: ${project.version}
+main: com.bilicraft.icebreakboat.IceBreakBoat
+api-version: 1.17
+description: 破冰船
+softdepend:
+  - CoreProtect
