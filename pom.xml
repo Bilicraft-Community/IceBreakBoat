@@ -75,12 +75,5 @@
             <version>1.17-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
-        <dependency>
-            <groupId>coreprotect</groupId>
-            <artifactId>coreprotect</artifactId>
-            <version>random</version>
-            <scope>system</scope>
-            <systemPath>${basedir}/lib/CoreProtect-19.5.jar</systemPath>
-        </dependency>
     </dependencies>
 </project>

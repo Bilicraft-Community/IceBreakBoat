@@ -22,15 +22,10 @@ import org.bukkit.plugin.java.JavaPlugin;
 import java.util.concurrent.TimeUnit;
 
 public final class IceBreakBoat extends JavaPlugin implements Listener {
-    private final Cache<Location, Material> blockCache = CacheBuilder.newBuilder()
-            .expireAfterAccess(1, TimeUnit.MINUTES)
-            .build();
-    private CoreProtectAPI api;
 
     @Override
     public void onEnable() {
         // Plugin startup logic
-       api = ((net.coreprotect.CoreProtect) Bukkit.getPluginManager().getPlugin("CoreProtect")).getAPI();
        Bukkit.getPluginManager().registerEvents(this,this);
        Bukkit.getScheduler().runTaskTimer(this,()->{
            Bukkit.getOnlinePlayers().forEach(player->{
@@ -41,10 +36,6 @@ public final class IceBreakBoat extends JavaPlugin implements Listener {
                Block block = vehicle.getLocation().clone().add(0,-1,0).getBlock();
                if(Tag.ICE.isTagged(block.getType())){
                    player.breakBlock(block);
-                   //if(!player.breakBlock(block)){
-                   //    block.breakNaturally();
-                   //    api.logRemoval(player.getName(),block.getLocation() , block.getType(), block.getBlockData());
-                   //}
                }
            });
        }, 0,5L);
